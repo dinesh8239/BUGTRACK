@@ -14,5 +14,5 @@ connectDB()
         })
     }).catch((error) => {
         console.log("Error connectiong to MOngoDB", error);
-        
+
     })

@@ -4,6 +4,7 @@ import bcrypt from 'bcrypt'
 import ApiError from '../utils/ApiError.js';
 import ApiResponse from '../utils/ApiResponse.js';
 import asyncHandler from '../utils/asyncHandler.js'
+import validateSchemaUpdate from '../utils/validation.js'
 
 const generateAccessAndRefreshTokens = async (userId) => {
     try {
@@ -64,6 +65,7 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
 
 export const registerUser = asyncHandler(async (req, res) => {
     try {
+        validateSchemaUpdate(req)
         const { userName, email, password, role } = req.body;
 
         const existing = await User.findOne({ email });
