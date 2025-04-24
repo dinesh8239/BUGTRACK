@@ -39,7 +39,7 @@ export const getAllProjects = asyncHandler(async (req, res) => {
         return res.status(200)
             .json(
                 new ApiResponse(
-                    true,
+                    true, 
                     "Projects fetched successfully",
                     projects
                 )
@@ -106,3 +106,5 @@ export const addMemberToProject = asyncHandler(async (req, res) => {
         )
     }
 });
+
+
